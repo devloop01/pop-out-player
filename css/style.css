@@ -1,0 +1,44 @@
+:root {
+	--font-size: 1.25rem;
+	--font-weight: 500;
+	--font-color: #fff;
+	--border-radius: 4px;
+	--info-background: rgba(29, 28, 29, 0.9);
+	--transition: opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.pop-button {
+	position: relative;
+	opacity: 0.9;
+	display: inline-block;
+	width: 36px;
+	transition: var(--transition);
+	z-index: 1000;
+}
+
+.pop-button .info-text {
+	--padding: 5px 8px;
+	width: auto;
+	height: 16px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(-20%,-152%);
+	white-space: nowrap;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--font-color);
+	font-size: var(--font-size);
+	font-weight: var(--font-weight);
+	padding: var(--padding);
+	border-radius: var(--border-radius);
+	background: var(--info-background);
+	opacity: 0;
+	pointer-events: none;
+	transition: var(--transition);
+}
+
+.pop-button:hover .info-text {
+	opacity: 1;
+}
