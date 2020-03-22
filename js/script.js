@@ -2,6 +2,7 @@ const videoControlsContainer = document.querySelector(".ytp-chrome-controls");
 const rightControls = videoControlsContainer.querySelector(".ytp-right-controls");
 let videoEl = document.querySelector("#movie_player > div.html5-video-container > video");
 let popoutButton, infoText;
+let fullScreen = false;
 
 const SVGIcons = {
 	popout: `
@@ -28,8 +29,14 @@ if ("pictureInPictureEnabled" in document) {
 	});
 
 	document.addEventListener("fullscreenchange", e => {
-		if (document.pictureInPictureElement) {
-			document.exitPictureInPicture();
+		fullScreen = !fullScreen;
+		if(fullScreen == true){
+			if (document.pictureInPictureElement) {
+				document.exitPictureInPicture();
+			}
+			popoutButton.style.display = "none";
+		}else{
+			popoutButton.style.display = "inline-block";
 		}
 	});
 }
