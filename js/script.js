@@ -28,8 +28,8 @@ if ("pictureInPictureEnabled" in document) {
 	});
 
 	document.addEventListener("fullscreenchange", e => {
-		if (videoEl == document.pictureInPictureElement) {
-			videoEl.requestPictureInPicture();
+		if (document.pictureInPictureElement) {
+			document.exitPictureInPicture();
 		}
 	});
 }
