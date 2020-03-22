@@ -28,7 +28,9 @@ if ("pictureInPictureEnabled" in document) {
 	});
 
 	document.addEventListener("fullscreenchange", e => {
-		togglePIPMode();
+		if (videoEl == document.pictureInPictureElement) {
+			videoEl.requestPictureInPicture();
+		}
 	});
 }
 
